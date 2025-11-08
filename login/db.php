@@ -4,7 +4,7 @@ $host = 'localhost';
 $user = 'root';
 $pass = ''; // default XAMPP password
 $dbname = 'trabawho';
-$port = 3307; // your custom MySQL port
+$port = 3306; // your custom MySQL port
 
 $conn = new mysqli($host, $user, $pass, $dbname, $port);
 

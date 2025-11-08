@@ -9,16 +9,24 @@
 <body>
 
 <header class="top-panel">
-  Trabawho
+  <div class="logo">Trabawho</div>
+
+  <div class="profile-dropdown">
+    <button class="profile-btn">Profile &#9662;</button>
+    <div class="dropdown-content">
+      <a href="profile.php">Profile</a>
+      <a href="../login/logout.php">Logout</a>
+    </div>
+  </div>
 </header>
 
 <div class="main-container">
 
-  <!-- Left: Job Cards + Search -->
+  <!-- Left Panel: Job Cards + Search -->
   <div class="left-panel">
     <h1>Hiring</h1>     
 
-    <!-- Search bar -->
+    <!-- Search Bar -->
     <input type="text" id="job-search" placeholder="Search by title, location or type..." onkeyup="filterJobs()">
 
     <!-- Scrollable Job Feed -->
@@ -60,7 +68,7 @@
     </div>
   </div>
 
-  <!-- Right: Job Details -->
+  <!-- Right Panel: Job Details -->
   <div class="job-details-panel" id="job-details-panel">
     <?php if (!empty($firstJob)) { ?>
       <h2><?php echo $firstJob['title']; ?></h2>
@@ -72,6 +80,7 @@
       <p><strong>Status:</strong> <?php echo $firstJob['status']; ?></p>
       <p><strong>Description:</strong> <?php echo $firstJob['description']; ?></p>
       <p><strong>Skills:</strong> <?php echo $firstJob['skills']; ?></p>
+      <button class="apply-btn" onclick="applyJob(<?php echo $firstJob['id']; ?>)">Apply</button> <!-- DITO YUNG FUNCTION NG APPLY BUTTON -->
     <?php } else { ?>
       <p>Click a job card to view full details here.</p>
     <?php } ?>
@@ -82,6 +91,7 @@
 <script>
 const jobs = <?php echo json_encode($jobsArray); ?>;
 
+// Show job details on right panel
 function showDetails(id) {
     const job = jobs.find(j => j.id == id);
     const panel = document.getElementById('job-details-panel');
@@ -95,9 +105,17 @@ function showDetails(id) {
         <p><strong>Status:</strong> ${job.status}</p>
         <p><strong>Description:</strong> ${job.description}</p>
         <p><strong>Skills:</strong> ${job.skills}</p>
+        <button class="apply-btn" onclick="applyJob(${job.id})">Apply</button>
     `;
 }
 
+// Apply button function
+function applyJob(id) {
+    alert("You clicked apply for job ID: " + id);
+    // Here you can redirect to an application form or AJAX request
+}
+
+// Filter job cards
 function filterJobs() {
     const input = document.getElementById('job-search').value.toLowerCase();
     const cards = document.querySelectorAll('.job-card');

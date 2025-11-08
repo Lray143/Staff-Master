@@ -5,7 +5,7 @@ require_once 'db.php';
 $error = '';
 
 if (isset($_SESSION['email'])) {
-    header('Location: welcome.php');
+    header('Location: ..\Employee dashboard\dashboard.php');
     exit();
 }
 
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['first_name'] = $first_name;
                 $_SESSION['role'] = $role;
                 $stmt->close();
-                header('Location: welcome.php');
+                header('Location: ..\Employee dashboard\dashboard.php');
                 exit();
             } else {
                 $error = 'Invalid email or password.';
