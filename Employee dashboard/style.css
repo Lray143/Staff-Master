@@ -1,0 +1,65 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.top-panel {
+    background-color: #4A90E2;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.main-container {
+    display: flex;
+    height: calc(100vh - 70px);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Left Panel */
+.left-panel {
+    flex: 0 0 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Search Bar */
+#job-search {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Scrollable job feed */
+.job-feed-scrollable {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Job Card */
+.job-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Right Panel */
+.job-details-panel {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
